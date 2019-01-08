@@ -1,0 +1,12 @@
+<div class="card-columns">
+    <div *ngFor="let movie of movies"
+          class="card"
+          (click)="getMovie(movie)">
+        <img src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{movie.title}}</h5>
+            <small>{{movie.release_date}}</small>
+            <p class="card-text">{{movie.overview}}</p>
+        </div>
+    </div>
+</div>

@@ -4,15 +4,5 @@
         It’s built with default Bootstrap components and utilities with little customization.</p>
 </div>
 <div class="container">
-    <div class="card-columns">
-        <div *ngFor="let movie of movies"
-              class="card">
-            <img src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{movie.title}}</h5>
-                <small>{{movie.release_date}}</small>
-                <p class="card-text">{{movie.overview}}</p>
-            </div>
-        </div>
-    </div>
+    <app-card-movie></app-card-movie>
 </div>

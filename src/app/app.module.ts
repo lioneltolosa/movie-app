@@ -9,6 +9,7 @@ import { SearchComponent } from './components/search/search.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CardMovieComponent } from './components/card-movie/card-movie.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FooterComponent } from './components/footer/footer.component';
     SearchComponent,
     MovieComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    CardMovieComponent
   ],
   imports: [
     BrowserModule,
