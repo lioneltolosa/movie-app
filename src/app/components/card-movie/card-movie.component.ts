@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-movie',
@@ -10,29 +10,27 @@ import { ActivatedRoute } from '@angular/router';
 export class CardMovieComponent  {
 
   movies: any[] = [];
-  films: any = {};
+  films: any[] = [];
 
   constructor( public moviesService: MoviesService,
-              private activatedRoute: ActivatedRoute ) {
+               public activatedRoute: ActivatedRoute,
+               public router: Router ) {
 
     this.moviesService.getpopular()
-      .subscribe ( (data: any) => {
-        console.log(data);
-        this.movies = data;
+      .subscribe ((movies: any) => {
+        console.log(movies);
+        this.movies = movies;
     });
 
-    this.activatedRoute.params.subscribe ( params => {
-      console.log(params['id']);
+    // this.activatedRoute.params.subscribe ( params => {
+    //   console.log(params['id']);
 
-      this.getMovie( params['id']);
-    });
+    //   // this.getMovie( params['id']);
+    // });
   }
-  
-  getMovie(id: string) {
-    console.log(id);
-    this.moviesService.getMovie( id )
-      .subscribe ( movies => {
-        this.films = movies;
-    });
+
+  getMovie( movie: any) {
+    console.log(movie.id);
+    this.router.navigate(['/movie', movie.id ]);
   }
 }
